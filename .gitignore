@@ -1,0 +1,14 @@
+*.class
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+/.apt_generated
+*/WEB-INF/classes/
