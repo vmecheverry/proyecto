@@ -6,12 +6,32 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="resources/css/style.css" type="text/css"/>
+<script type="text/javascript" src="resources/js/jquery-3.2.1.js"></script>
+<script type="text/javascript" src="resources/js/jquery.validate.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#formRegister').validate({
+			rules:{
+				'acronym':{
+					 maxlength: 9
+					 
+				},
+				'name':{
+					required:true,
+					 minlength: 3,
+					 maxlength: 8
+					 
+				}
+			}
+		});	
+	});
+</script>
 <title>Insert title here</title>
 </head>
 <body>
 	<center>
 	<div class="content">
-		<s:form action="hello">
+		<s:form action="hello" id="formRegister">
 			<h3>Request a new institution or branch</h3>
 			
 			<table>
@@ -24,7 +44,7 @@
 			</tr>
 			
 			<tr>
-			<td><s:textfield label="Acronym"></s:textfield></td>
+			<td><s:textfield name="acronym"  label="Acronym"></s:textfield></td>
 			<td><s:textfield label="Name"></s:textfield></td>
 			</tr>
 			
@@ -48,10 +68,10 @@
 			
 			
 			
+			<h2><s:property value="%{saludo}"/></h2>
 			
 			
-			
-			<s:textfield name="name" label="User Name"></s:textfield>
+			<s:textfield name="name" label="User Name" value="%{saludo}"></s:textfield>
 			<s:submit label="Request add new partner" value="Greet"></s:submit>
 		</s:form>
 	</div>

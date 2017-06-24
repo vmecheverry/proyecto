@@ -7,6 +7,6 @@
 		<action name="hello" class="com.vmecheverry.struts.HelloAction" method="greet">
 			<result>/welcome.jsp</result>
 		</action>
-		
+
 </package>
 </struts>

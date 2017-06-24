@@ -8,3 +8,7 @@ body {
 	background-color: white;
 	width: 60%;
 }
+
+.error{
+	color: red;
+}
