@@ -6,7 +6,6 @@
 <script type="text/javascript" src="resources/js/jquery.validate.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		alert("hola");
 		$('#formRegister').validate({
 			rules:{
 				'partner.acronym':{
@@ -61,12 +60,18 @@
 
 <s:textfield name="partner.name" 		label="name(*)"></s:textfield>
 <s:radio label="Is this institution a branch?(*)" name="partner.branch" list="#{'1':'Yes','2':'No'}" value="2"  />
+	
+	
 	<s:select label="Select institution headquarter" 
 		headerKey="-1" 
 		list="searchEngine" 
 		listValue="name"
+		listKey="name"
 		name="yourSearchEngine" 
-		value="defaultSearchEngine" />
+		value="defaultSearchEngine" 
+		
+		/>
+		
 <s:textfield name="partner.acronym"  label="Acronym(*)"></s:textfield>
 	<s:select label="Type"
        name="partner.type"
