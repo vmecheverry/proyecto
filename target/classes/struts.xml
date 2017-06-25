@@ -30,10 +30,13 @@
 		
 		<action name="selectAction" class="com.mkyong.common.action.SelectAction" method="display">
 			<result name="none">select.jsp</result>
+			<result name="success">/homeObject.jsp</result>
+			<result name="input">/select.jsp</result>
 		</action>
 		
 		<action name="resultAction" class="com.mkyong.common.action.SelectAction">
-			<result name="success">result2.jsp</result>
+			<result name="success">/homeObject.jsp</result>
+			<result name="input">/select.jsp</result>
 		</action>
 	</package>
 </struts>
