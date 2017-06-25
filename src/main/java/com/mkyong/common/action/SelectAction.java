@@ -72,16 +72,21 @@ public class SelectAction extends ActionSupport{
 			
 
 			if(responseValidation.equals("SUCESS")){
-				list.add(this.partner);
-				
 				if(partner.getBranch().equals("1")){
 					System.out.println("Es Branch !!!!");
 					System.out.println(yourSearchEngine);
-					
-					
+					for (Partner currentPartner : list) {
+						if(currentPartner.getName().equals(yourSearchEngine)){
+							System.out.println("Encontrado");
+							currentPartner.getBranches().add(this.partner);
+							currentPartner.setBranches(currentPartner.getBranches());
+						}
+					}
+				}else{
+					list.add(this.partner);
 				}
 				
-				//obj.savePartner(list,path);
+				obj.savePartner(list,path);
 				System.out.println("**********************************************");
 			}else{
 				addActionError(responseValidation);
