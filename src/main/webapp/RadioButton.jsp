@@ -11,7 +11,7 @@
 		<%-- <s:radio name="cityName2" list="cities2" listValue="name"/>
 		<s:submit label="Submit" /> --%>
 		
-		<s:radio name="cityName" list="cities"/>
+		<s:select name="cityName" list="cities"/>
 		<s:radio name="cityName2" list="cities2" label="Partners" />
 		<s:submit label="Submit" />
 	</s:form>

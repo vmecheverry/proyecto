@@ -17,14 +17,23 @@
 		<action name="login">
 			<result>/login.jsp</result>
 		</action>
-		<action name="Welcome" class="com.journaldev.struts2.actions.WelcomeAction">
+		<action name="Welcome" class="com.journaldev.struts2.actions.WelcomeAction" method="display">
 			<result name="success">/homeObject.jsp</result>
 			<result name="input">/login.jsp</result>
 		</action>
 		
 		<action name="RadioDemo" class="javabeat.net.struts2.Struts2UITagsAction" >
-			<result name="success">Result.jsp</result>
-			<result name="INDEX">RadioButton.jsp</result>
+			<result name="success">/Result.jsp</result>
+			<result name="INDEX">/RadioButton.jsp</result>
+		</action>
+		
+		
+		<action name="selectAction" class="com.mkyong.common.action.SelectAction" method="display">
+			<result name="none">select.jsp</result>
+		</action>
+		
+		<action name="resultAction" class="com.mkyong.common.action.SelectAction">
+			<result name="success">result2.jsp</result>
 		</action>
 	</package>
 </struts>

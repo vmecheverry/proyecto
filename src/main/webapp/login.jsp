@@ -48,6 +48,26 @@
 </s:if>
 
 <s:form action="Welcome" id="formRegister">
+
+
+<h2>
+	<%-- <s:select label="What's your favor search engine"
+		headerKey="-1" headerValue="Select Search Engines"
+		list="searchEngine"
+		name="yourSearchEngine"
+		value="defaultSearchEngine" /> --%>
+</h2>
+
+<h2>
+	<s:select label="Select a month"
+		headerKey="-1" headerValue="Select Month"
+		list="#{'1':'Jan', '2':'Feb', '3':'Mar', '4':'Apr'}"
+		name="yourMonth"
+		value="2" />
+</h2>
+
+
+
 <s:textfield name="partner.name" 		label="name(*)"></s:textfield>
 <s:radio label="Is this institution a branch?(*)" name="partner.branch" list="#{'1':'Yes','2':'No'}" value="2"  />
 <s:textfield label="Select institution headquarter" disabled="true"></s:textfield>
