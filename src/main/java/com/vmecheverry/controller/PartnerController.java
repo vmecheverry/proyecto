@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -27,7 +28,7 @@ public class PartnerController {
 		List<Partner> list=obj.loadList();
 		obj.savePartner(list,"D:\\partner.json");
 		
-		//obj.listPartner();
+		//obj.listPartner("D:\\partner.json");
 		
 	}
 	
@@ -39,7 +40,7 @@ public class PartnerController {
 
 			List<Partner> list=  new ArrayList<>();
 			Partner p1= new Partner();
-			p1.setBranch(true);
+			p1.setBranch("1");
 			p1.setBranches(null);
 			p1.setAcronym("CIAT");
 			p1.setName("Centro Internacional de Agricultura Tropical");
@@ -51,7 +52,7 @@ public class PartnerController {
 			
 			
 			Partner p3= new Partner();
-			p3.setBranch(true);
+			p3.setBranch("2");
 			p3.setBranches(null);
 			p3.setAcronym("CIAT-Villavicencio");
 			p3.setName("Centro Internacional de Agricultura Tropical");
@@ -64,7 +65,7 @@ public class PartnerController {
 			Partner p2= new Partner();
 			List<Partner> branchesList= new ArrayList<Partner>();
 			branchesList.add(p3);
-			p2.setBranch(true);
+			p2.setBranch("1");
 			p2.setBranches(branchesList);
 			p2.setAcronym("CIAT");
 			p2.setName("Centro Internacional de Agricultura Tropical");
@@ -111,12 +112,18 @@ public class PartnerController {
 		}
 	}
 	
-	public List<Partner> listPartner() {
+	@SuppressWarnings("unchecked")
+	public List<Partner> listPartner(String path) {
 		ObjectMapper mapper = new ObjectMapper();
 		List<Partner> partnerList = new ArrayList<Partner>();
 		try {
-			partnerList = (List<Partner>) mapper.readValue(new File("partner.json"), List.class);
-			//partnerList = (List<Partner>) mapper.readValue(new File("D:\\partner.json"), List.class);
+			File file=new File(path);
+			//partnerList = (List<Partner>) mapper.readValue(file, List.class);
+			
+			partnerList= Arrays.asList(mapper.readValue(file, Partner[].class));
+			
+			
+	    	 
 		} catch (JsonGenerationException e) {
 			//e.printStackTrace();
 		} catch (JsonMappingException e) {

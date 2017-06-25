@@ -6,7 +6,7 @@ import java.util.List;
 public class Partner {
 	
 	
-	private boolean branch;
+	private String branch;
 	private List<Partner> branches;
 	private String acronym;
 	private String name;
@@ -19,10 +19,11 @@ public class Partner {
 		branches= new ArrayList<Partner>();
 	}
 	
-	public boolean isBranch() {
+
+	public String getBranch() {
 		return branch;
 	}
-	public void setBranch(boolean branch) {
+	public void setBranch(String branch) {
 		this.branch = branch;
 	}
 	public List<Partner> getBranches() {

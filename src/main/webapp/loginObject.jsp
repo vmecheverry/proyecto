@@ -33,9 +33,30 @@
     <center>
 	<div class="content">
 		<s:form action="loginObject" id="formRegister">
+		
+		
+		<s:if test="hasActionErrors()">
+		   <div class="errors">
+		      <s:actionerror/>
+		      holaaaaaaa
+		   </div>
+		</s:if>
+		
 			<h3>Request a new institution or branch</h3>
 			<table>
 			<tr>
+			<s:select label="Type"
+       name="partner.type"
+       headerKey="-1" headerValue="Type"
+       list="
+       #{
+       '01':'Academic Institution', 
+       '02':'Donor',
+       '03':'Non-Governammental Organization',
+       '04':'Research Institution'}"
+       value="2"
+       required="true"
+/>
 			<td><s:textfield  name="partner.acronym" 	label="acronym"></s:textfield></td>
 			<td><s:textfield  name="partner.name" 		label="name"></s:textfield></td>
 			<td><s:textfield  name="partner.type" 		label="type"></s:textfield></td>
