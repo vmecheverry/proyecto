@@ -138,11 +138,11 @@ public class SelectAction extends ActionSupport{
     	 if(acronymMap.get(elemento.getAcronym())!=null){
     		 msg="Acronym is duplicated";
     		 
-    		 if(acronymMap.get(elemento.getAcronym())!=null){
+    		 if(nameMap.get(elemento.getName())!=null){
         		 msg="Acronym and name are duplicated";
         	 }
     	 }else{
-    		 if(acronymMap.get(elemento.getAcronym())!=null){
+    		 if(nameMap.get(elemento.getName())!=null){
         		 msg="Name is duplicated";
         	 }
     	 }

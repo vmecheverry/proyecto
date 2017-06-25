@@ -6,6 +6,7 @@
 <script type="text/javascript" src="resources/js/jquery.validate.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		alert("hola");
 		$('#formRegister').validate({
 			rules:{
 				'partner.acronym':{
@@ -44,7 +45,7 @@
 </s:if>
 <h1>Struts 2 drop down box example</h1>
 
-<s:form action="resultAction" namespace="/">
+<s:form action="resultAction" id="formRegister" namespace="/">
 
 <h4>
 	<s:select label="What's your favor search engine" 
