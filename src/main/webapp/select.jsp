@@ -47,13 +47,9 @@
 
 <s:form action="resultAction" id="formRegister" namespace="/">
 
-<h4>
-	<s:select label="What's your favor search engine" 
-		headerKey="-1" headerValue="Select Search Engines"
-		list="searchEngine" 
-		name="yourSearchEngine" 
-		value="defaultSearchEngine" />
-</h4> 
+
+
+ 
 
 <h4>
 	<s:select label="Select a month" 
@@ -65,7 +61,12 @@
 
 <s:textfield name="partner.name" 		label="name(*)"></s:textfield>
 <s:radio label="Is this institution a branch?(*)" name="partner.branch" list="#{'1':'Yes','2':'No'}" value="2"  />
-<s:textfield label="Select institution headquarter" disabled="true"></s:textfield>
+	<s:select label="Select institution headquarter" 
+		headerKey="-1" 
+		list="searchEngine" 
+		listValue="name"
+		name="yourSearchEngine" 
+		value="defaultSearchEngine" />
 <s:textfield name="partner.acronym"  label="Acronym(*)"></s:textfield>
 	<s:select label="Type"
        name="partner.type"

@@ -14,7 +14,7 @@ import com.vmecheverry.pojos.Partner;
 
 public class SelectAction extends ActionSupport{
 
-	private List<String> searchEngine;
+	private List<Partner> searchEngine;
 
 	private String yourSearchEngine;
 	private String yourMonth;
@@ -27,11 +27,11 @@ public class SelectAction extends ActionSupport{
 		this.yourMonth = yourMonth;
 	}
 
-	public List<String> getSearchEngine() {
+	public List<Partner> getSearchEngine() {
 		return searchEngine;
 	}
 
-	public void setSearchEngine(List<String> searchEngine) {
+	public void setSearchEngine(List<Partner> searchEngine) {
 		this.searchEngine = searchEngine;
 	}
 
@@ -53,14 +53,14 @@ public class SelectAction extends ActionSupport{
 		System.out.println("Entre al metodo de validar");
 		
 		if(partner!=null){
-			System.out.println("1)getName "+partner.getName());
+		/*	System.out.println("1)getName "+partner.getName());
 			System.out.println("2)is branch? "+partner.getBranch());
 			System.out.println("3)getBranches "+partner.getBranches());
 			System.out.println("4)getType "+partner.getType());
 			System.out.println("5)getCountry "+partner.getCountry());
 			System.out.println("6)getCity "+partner.getCity());
 			System.out.println("7)getWebsite "+partner.getWebsite());
-			
+			*/
 	    	ServletContext context = ServletActionContext.getServletContext();
 			String path = context.getRealPath("/partner.json");
 	    	PartnerController obj = new PartnerController();
@@ -84,12 +84,15 @@ public class SelectAction extends ActionSupport{
 	}
 	
 	public SelectAction(){
-
-		searchEngine = new ArrayList<String>();
-		searchEngine.add("google.com");
-		searchEngine.add("bing.com");
-		searchEngine.add("yahoo.com");
-		searchEngine.add("baidu.com");
+		
+		searchEngine=  new ArrayList<Partner>();
+		
+		
+		ServletContext context = ServletActionContext.getServletContext();
+		String path = context.getRealPath("/partner.json");
+    	PartnerController obj = new PartnerController();
+    	List<Partner> list=obj.listPartner(path);
+    	searchEngine = new ArrayList<>(list);
 	}
 
 	public String execute() {
