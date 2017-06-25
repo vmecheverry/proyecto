@@ -22,7 +22,35 @@
 			}
 		});	
 	});
+	
 </script>
+
+
+<script type="text/javascript">
+function cambiar()
+{
+
+ console.log($('input[name="partner.branch"]:checked').val());
+ 
+ var keyValue = $('input[name="partner.branch"]:checked').val();
+ 
+ if (keyValue==2)
+ {
+  $("label[for='instHQ']").hide();
+  $("#instHQ").hide();
+ } 
+ else
+ {
+  $("label[for='instHQ']").show();
+  $("#instHQ").show();
+ }
+ 
+}
+</script>
+
+
+
+
 <title>seleeeeeect</title>
 <!-- Adding CSS for Styling of error messages -->
 <style type="text/css">
@@ -48,30 +76,21 @@
 
 
 
- 
-
-<h4>
-	<s:select label="Select a month" 
-		headerKey="-1" headerValue="Select Month"
-		list="#{'1':'Jan', '2':'Feb', '3':'Mar', '4':'Apr'}" 
-		name="yourMonth" 
-		value="2" />
-</h4> 
-
 <s:textfield name="partner.name" 		label="name(*)"></s:textfield>
-<s:radio label="Is this institution a branch?(*)" name="partner.branch" list="#{'1':'Yes','2':'No'}" value="2"  />
+<s:radio id="isBranch" label="Is this institution a branch?(*)" name="partner.branch" list="#{'1':'Yes','2':'No'}" value="1"  onchange="cambiar();"  />
 	
 	
-	<s:select label="Select institution headquarter" 
-		headerKey="-1" 
-		list="searchEngine" 
-		listValue="name"
-		listKey="name"
-		name="yourSearchEngine" 
-		value="defaultSearchEngine" 
-		
-		/>
-		
+	<div id="aaaaaa">
+			<s:select label="Select institution headquarter"  id="instHQ" 
+				headerKey="-1" 
+				list="searchEngine" 
+				listValue="name"
+				listKey="name"
+				name="yourSearchEngine" 
+				value="defaultSearchEngine" 
+				
+				/>
+	</div>	
 <s:textfield name="partner.acronym"  label="Acronym(*)"></s:textfield>
 	<s:select label="Type"
        name="partner.type"
@@ -86,6 +105,16 @@
        required="true"
 />
 <s:textfield name="partner.country"	label="Country"></s:textfield>
+
+	<s:select label="Select institution headquarter" 
+		headerKey="-1" 
+		list="countries" 
+		listValue="description"
+		listKey="code"
+		
+		/>
+
+
 <s:textfield name="partner.city"	label="City"></s:textfield>
 <s:textfield name="partner.website"	label="If you know the partner website please paste the link below"></s:textfield>
 
