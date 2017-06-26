@@ -21,11 +21,22 @@ public class SelectAction extends ActionSupport{
 	private String yourSearchEngine;
 	private String yourSearchCountry;
 	
+	
+	
+	 private List<String> holaaa;
 
+	 
+	
+	
+	
+	public List<String> getHolaaa() {
+		return holaaa;
+	}
 
-	
-	
-	
+	public void setHolaaa(List<String> holaaa) {
+		this.holaaa = holaaa;
+	}
+
 	public List<Partner> getSearchEngine() {
 		return searchEngine;
 	}
@@ -372,6 +383,14 @@ public class SelectAction extends ActionSupport{
     	obj1= new Country("ZM","Zambia"); countries.add(obj1);
     	obj1= new Country("ZR","Zaire"); countries.add(obj1);
     	obj1= new Country("ZW","Zimbabwe"); countries.add(obj1);
+    	
+    	 holaaa= new ArrayList<String>();
+    	 holaaa.add("A");
+    	 holaaa.add("B");
+    	 holaaa.add("C");
+    	 holaaa.add("D");
+	     holaaa.add("E");
+	     holaaa.add("F");
     	
 	}
 
