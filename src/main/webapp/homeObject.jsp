@@ -27,34 +27,48 @@
 			<td>city</td>
  		</tr>
  		
- 		<s:iterator value="partnerList" status="listStatus">
-  		<tr>
- 		   	<s:if test="#listStatus.even == true">
- 		   		<td><s:property value="%{name}"/></td>
-				<td><s:property value="%{acronym}"/></td>
-				<td><s:property value="%{name}"/></td>
-				<td><s:property value="%{type}"/></td>
-				<td><s:property value="%{country}"/></td>
-				<td><s:property value="%{city}"/></td>
-    		</s:if>
-    		<s:elseif test="#listStatus.first == true">
-      			<td><s:property value="%{name}"/></td>
-				<td ><s:property value="%{acronym}"/></td>
-				<td ><s:property value="%{name}"/></td>
-				<td ><s:property value="%{type}"/></td>
-				<td ><s:property value="%{country}"/></td>
-				<td >"><s:property value="%{city}"/></td>
-    		</s:elseif>
-   	 		<s:else>
-      			<td><s:property value="%{name}"/></td>
-				<td ><s:property value="%{acronym}"/></td>
-				<td ><s:property value="%{name}"/></td>
-				<td ><s:property value="%{type}"/></td>
-				<td ><s:property value="%{country}"/></td>
-				<td ><s:property value="%{city}"/></td>
-    		</s:else>
-  		</tr>
-  		
+ 		<s:iterator value="partnerList" status="listStatus" var="parent">
+    <tr>
+       <s:if test="#listStatus.even == true">
+        <td><s:property value="%{name}"/></td>
+    <td><s:property value="%{acronym}"/></td>
+    <td><s:property value="%{name}"/></td>
+    <td><s:property value="%{type}"/></td>
+    <td><s:property value="%{country}"/></td>
+    <td><s:property value="%{city}"/></td>
+      </s:if>
+      <s:elseif test="#listStatus.first == true">
+         <td><s:property value="%{name}"/></td>
+    <td ><s:property value="%{acronym}"/></td>
+    <td ><s:property value="%{name}"/></td>
+    <td ><s:property value="%{type}"/></td>
+    <td ><s:property value="%{country}"/></td>
+    <td ><s:property value="%{city}"/> </td>
+      </s:elseif>
+       <s:else>
+         <td><s:property value="%{name}"/></td>
+    <td ><s:property value="%{acronym}"/></td>
+    <td ><s:property value="%{name}"/></td>
+    <td ><s:property value="%{type}"/></td>
+    <td ><s:property value="%{country}"/></td>
+    <td ><s:property value="%{city}"/> </td>
+      </s:else>
+    </tr>
+    <s:if test="%{branches.size>0}">
+     <tr>
+      <td colspan="6" style="background-color: #99CCFF"><b>Branch of <s:property value="%{name}"/>  </b> </td>
+     </tr>
+     <s:iterator value="%{branches}" status="subPartnerlistStatus" var="child">
+      <tr>      
+       <td><b> <s:property value="#parent.name"/> - <s:property value="%{name}"/></b>  </td>
+     <td ><s:property value="%{acronym}"/></td>
+     <td ><s:property value="%{name}"/></td>
+     <td ><s:property value="%{type}"/></td>
+     <td ><s:property value="%{country}"/></td>
+     <td ><s:property value="%{city}"/>      
+      </tr>     
+     </s:iterator>    
+    </s:if>    
 </s:iterator>
  	</table>
  	<s:form action="selectAction" > 
