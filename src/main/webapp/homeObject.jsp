@@ -33,6 +33,22 @@
 </s:iterator>
  	</table>
  	
+ 	<table>
+ 	<s:iterator value="partnerList" status="listStatus">
+  <tr>
+    <s:if test="#listStatus.even == true">
+      <td style="background: #CCCCCC"><s:property/></td>
+    </s:if>
+    <s:elseif test="#listStatus.first == true">
+      <td><s:property/> (This is first value) </td>
+    </s:elseif>
+    <s:else>
+      <td><s:property/></td>
+    </s:else>
+  </tr>
+</s:iterator>
+ 	</table>
+ 	
  	
 </body>
 </html>

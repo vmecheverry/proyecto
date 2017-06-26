@@ -21,7 +21,7 @@ public class SelectAction extends ActionSupport{
 	private String yourSearchEngine;
 	private String yourSearchCountry;
 	
-	
+	private List<Partner> partnerList;
 	
 	 private List<String> holaaa;
 
@@ -29,6 +29,14 @@ public class SelectAction extends ActionSupport{
 	
 	
 	
+	public List<Partner> getPartnerList() {
+		return partnerList;
+	}
+
+	public void setPartnerList(List<Partner> partnerList) {
+		this.partnerList = partnerList;
+	}
+
 	public List<String> getHolaaa() {
 		return holaaa;
 	}
@@ -108,6 +116,10 @@ public class SelectAction extends ActionSupport{
 				}
 				
 				obj.savePartner(list,path);
+				
+				List<Partner> listaFinal=obj.listPartner(path);
+				partnerList = new ArrayList<>(listaFinal);
+				
 				System.out.println("**********************************************");
 			}else{
 				addActionError(responseValidation);
