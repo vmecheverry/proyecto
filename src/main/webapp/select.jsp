@@ -74,13 +74,19 @@ function cambiar()
 
 <s:form action="resultAction" id="formRegister" namespace="/">
 
-<h1>Request a new Institution or branch</h1>
+<center>
+		<div class="title">
+			<h1>Request a new Institution or branch</h1>
+		</div>
+</center>
+
 
 <div class="contentInformation">
 	<p>Please enter the institution as "Partner" the legal entity.</p>
 	<p>The name of the institution should be in its officional language (e.g. For CIAT: Centro Internacional de agricultura Tropical)</p>
 
 </div>
+
 
 <s:textfield name="partner.name" 		label="name(*)"></s:textfield>
 <s:radio id="isBranch" label="Is this institution a branch?(*)" name="partner.branch" list="#{'1':'Yes','2':'No'}" value="1"  onchange="cambiar();"  />
@@ -108,6 +114,7 @@ function cambiar()
        value="2"
        required="true"
 />
+<div>
 <s:select label="Country" 
 		headerKey="-1" 
 		list="countries" 
@@ -116,12 +123,17 @@ function cambiar()
 		name="yourSearchCountry"
 		
 		/>
+
+</div>
+
 <s:textfield name="partner.city"	label="City"></s:textfield>
 <s:textfield name="partner.website"	label="If you know the partner website please paste the link below"></s:textfield>
 
 
 <%-- <s:submit value="submit" name="submit" /> --%>
-<s:submit key="label.submit.login" align="center" name="submit"></s:submit>
+<s:submit  class="myButton" key="Request add new partner" align="center" name="submit"></s:submit>
+</div>
+
 
 <s:if test="hasActionErrors()">
 	<div class="errorDiv">
@@ -130,7 +142,7 @@ function cambiar()
 </s:if>
 	
 </s:form>
-</div>
+
 </center>
 </body>
 </html>
