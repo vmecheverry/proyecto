@@ -11,14 +11,11 @@
 <script type="text/javascript" src="resources/js/jquery.validate.js"></script>
 </head>
 <body>
-
+	<dir class="form-group">
 	<h1>partners</h1>
-    <%--  <h3>acronym: <s:property value="partner.acronym"></s:property> </h3>
- 	<h3>name: <s:property value="partner.name"></s:property> </h3>
- 	<h3>type: <s:property value="partner.type"></s:property> </h3>
- 	<h3>country: <s:property value="partner.country"></s:property> </h3>
- 	<h3>city: <s:property value="partner.city"></s:property> </h3>
- 	<h3>website: <s:property value="partner.website"></s:property> </h3> --%>
+	</dir>
+	
+   
  	
  	<table class="table table-hover"">
  		<tr>
@@ -54,13 +51,15 @@
 				<td ><s:property value="%{name}"/></td>
 				<td ><s:property value="%{type}"/></td>
 				<td ><s:property value="%{country}"/></td>
-				<td >"><s:property value="%{city}"/></td>
+				<td ><s:property value="%{city}"/></td>
     		</s:else>
   		</tr>
   		
 </s:iterator>
  	</table>
- 	
+ 	<s:form action="selectAction" > 
+ 	<s:submit  class="btn btn-default" key="Come back" align="center" name="submit" action="selectAction"></s:submit>
+ 	</s:form>
  	
 </body>
 </html>
