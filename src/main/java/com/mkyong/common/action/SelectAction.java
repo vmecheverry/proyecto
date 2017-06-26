@@ -19,16 +19,13 @@ public class SelectAction extends ActionSupport{
 	private List<Country> countries;
 
 	private String yourSearchEngine;
-	private String yourMonth;
+	private String yourSearchCountry;
+	
 
-	public String getYourMonth() {
-		return yourMonth;
-	}
 
-	public void setYourMonth(String yourMonth) {
-		this.yourMonth = yourMonth;
-	}
-
+	
+	
+	
 	public List<Partner> getSearchEngine() {
 		return searchEngine;
 	}
@@ -71,6 +68,8 @@ public class SelectAction extends ActionSupport{
 			System.out.println("6)getCity "+partner.getCity());
 			System.out.println("7)getWebsite "+partner.getWebsite());
 			
+			partner.setCountry(yourSearchCountry);
+			
 	    	ServletContext context = ServletActionContext.getServletContext();
 			String path = context.getRealPath("/partner.json");
 	    	PartnerController obj = new PartnerController();
@@ -85,6 +84,7 @@ public class SelectAction extends ActionSupport{
 				if(partner.getBranch().equals("1")){
 					System.out.println("Es Branch !!!!");
 					System.out.println(yourSearchEngine);
+					System.out.println(yourSearchCountry);
 					for (Partner currentPartner : list) {
 						if(currentPartner.getName().equals(yourSearchEngine)){
 							System.out.println("Encontrado");
@@ -433,6 +433,32 @@ public class SelectAction extends ActionSupport{
     	 
     	 if(elemento.getBranch().equals("1")){
     		 
+    		 System.out.println("sucursal ciudad: "+elemento.getCity());
+    		 System.out.println("sucursal pais: "+elemento.getCountry());
+    		 
+    		 Partner partnerRoot= new Partner();
+    		 
+    		 for (Partner currentPartner : list) {
+					if(currentPartner.getName().equals(yourSearchEngine)){
+						partnerRoot=currentPartner;
+					}
+				}
+    		 
+    		 System.out.println("principal: "+partnerRoot.getCity());
+    		 System.out.println("principal: "+partnerRoot.getCountry());
+    		 
+    		 
+    		 if(elemento.getCity().equals(partnerRoot.getCity()) && elemento.getCountry().equals(partnerRoot.getCountry()) ){
+    			 msg="Country and city equal with his partner";
+    		 }
+    		 
+    		 for (Partner currentBranch : partnerRoot.getBranches()) {
+    			 if(elemento.getCity().equals(currentBranch.getCity()) && elemento.getCountry().equals(currentBranch.getCountry()) ){
+        			 msg="Country and city equal with a branch in the same Partner";
+        		 }
+			}
+    		 
+    		 
     	 }
     	 
     	 
@@ -450,6 +476,14 @@ public class SelectAction extends ActionSupport{
 
 	public void setPartner(Partner partner) {
 		this.partner = partner;
+	}
+
+	public String getYourSearchCountry() {
+		return yourSearchCountry;
+	}
+
+	public void setYourSearchCountry(String yourSearchCountry) {
+		this.yourSearchCountry = yourSearchCountry;
 	}
 
     

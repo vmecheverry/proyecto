@@ -7,6 +7,15 @@ body {
 .content{
 	background-color: white;
 	width: 60%;
+	text-align: left;
+}
+
+
+.contentInformation{
+	background-color: rgba(128, 128, 128, 0.28);
+	 border-radius: 15px ;
+	 padding: 5px;
+	 margin: 5px;
 }
 
 .error{

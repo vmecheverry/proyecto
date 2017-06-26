@@ -51,46 +51,50 @@ function cambiar()
 
 
 
-<title>seleeeeeect</title>
+<title>Partners Form</title>
 <!-- Adding CSS for Styling of error messages -->
 <style type="text/css">
 .errorDiv{
-	background-color:gray;
+	background-color:rgba(255, 0, 0, 0.65);
 	border:1px solid black;
-	width:400px;
+	
 	margin-bottom:8px;
 }
 </style>
 </head>
 
 <body>
-<%-- hasActionErrors() method is defined in ActionSupport --%>
-<s:if test="hasActionErrors()">
-	<div class="errorDiv">
-		<s:actionerror/>
-	</div>
-</s:if>
-<h1>Struts 2 drop down box example</h1>
+
+
+<center>
+
+
+
+	<div class="content">
 
 <s:form action="resultAction" id="formRegister" namespace="/">
 
+<h1>Request a new Institution or branch</h1>
 
+<div class="contentInformation">
+	<p>Please enter the institution as "Partner" the legal entity.</p>
+	<p>The name of the institution should be in its officional language (e.g. For CIAT: Centro Internacional de agricultura Tropical)</p>
+
+</div>
 
 <s:textfield name="partner.name" 		label="name(*)"></s:textfield>
 <s:radio id="isBranch" label="Is this institution a branch?(*)" name="partner.branch" list="#{'1':'Yes','2':'No'}" value="1"  onchange="cambiar();"  />
-	
-	
-	<div id="aaaaaa">
-			<s:select label="Select institution headquarter"  id="instHQ" 
-				headerKey="-1" 
-				list="searchEngine" 
-				listValue="name"
-				listKey="name"
-				name="yourSearchEngine" 
-				value="defaultSearchEngine" 
-				
-				/>
-	</div>	
+
+<s:select 
+	label="Select institution headquarter"  
+	id="instHQ" 
+	headerKey="-1" 
+	list="searchEngine" 
+	listValue="name"
+	listKey="name"
+	name="yourSearchEngine" 
+	 
+/>
 <s:textfield name="partner.acronym"  label="Acronym(*)"></s:textfield>
 	<s:select label="Type"
        name="partner.type"
@@ -104,17 +108,14 @@ function cambiar()
        value="2"
        required="true"
 />
-<s:textfield name="partner.country"	label="Country"></s:textfield>
-
-	<s:select label="Select institution headquarter" 
+<s:select label="Country" 
 		headerKey="-1" 
 		list="countries" 
 		listValue="description"
 		listKey="code"
+		name="yourSearchCountry"
 		
 		/>
-
-
 <s:textfield name="partner.city"	label="City"></s:textfield>
 <s:textfield name="partner.website"	label="If you know the partner website please paste the link below"></s:textfield>
 
@@ -122,8 +123,14 @@ function cambiar()
 <%-- <s:submit value="submit" name="submit" /> --%>
 <s:submit key="label.submit.login" align="center" name="submit"></s:submit>
 
+<s:if test="hasActionErrors()">
+	<div class="errorDiv">
+		<s:actionerror/>
+	</div>
+</s:if>
 	
 </s:form>
-
+</div>
+</center>
 </body>
 </html>
